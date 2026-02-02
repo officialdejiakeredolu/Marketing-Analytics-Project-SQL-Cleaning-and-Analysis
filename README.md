@@ -5,7 +5,7 @@
 End-to-end marketing analytics project using PostgreSQL to clean, unify, and analyze multi-channel marketing data (email, paid ads, organic social). The project focuses on realistic data quality issues, attribution tradeoffs, and translating SQL outputs into business decisions.
 
 **Key Skills Demonstrated**
-- Advanced SQL (CTEs, window functions, regex, attribution logic)
+- Advanced SQL (CTEs, window functions, regex, attribution logic, aggregations)
 - Data cleaning & validation at scale
 - Marketing analytics (ROI, LTV, churn, saturation)
 - Business-oriented insight generation
