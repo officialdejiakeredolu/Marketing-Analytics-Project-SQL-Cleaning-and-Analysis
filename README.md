@@ -217,20 +217,26 @@ The goal is not just to calculate metrics — it's to uncover why certain metric
 - **Analysis:** Perform performance, attribution, and strategic analyses on cleaned data
 - **Insights:** Translate analytical outputs into actionable business recommendations
 
-### Key SQL Techniques Used
+### Assumptions
+- **Date validity:** Transactions occurring before customer signup dates are filtered out as data-entry errors
+- **Revenue completeness:** No return or refund data is available; reported revenue may overstate true profit
+- **Sample reliability:** Campaigns with fewer than 1,000 recipients may produce unstable metrics
+
+<details>
+<summary><strong>Key SQL Techniques Used</strong></summary>
+ 
 - **CTEs:** Multi-step cleaning pipelines and readable query structure
 - **Window Functions:** `ROW_NUMBER()` (deduplication), `RANK()` (performance ranking), `LAG()` (trend analysis)
 - **Regex:** Date format detection, currency symbol removal, nested string parsing
 - **CROSS JOIN:** Efficient application of percentile benchmarks across all rows
 - **Derived Tables:** Two-stage processing (row-level calculations → aggregation)
 
-### Assumptions
-- **Date validity:** Transactions occurring before customer signup dates are filtered out as data-entry errors
-- **Revenue completeness:** No return or refund data is available; reported revenue may overstate true profit
-- **Sample reliability:** Campaigns with fewer than 1,000 recipients may produce unstable metrics
+</details>
 
-### Limitations
+<details>
+<summary><strong>Limitations</strong></summary>
 - **Email tracking:** No spam-folder visibility; open rates may be understated
 - **Attribution modeling:** Multi-touch attribution is simplified relative to real-world production models
 - **External factors:** Seasonality and macro effects are not explicitly controlled for in ROI calculations
 
+</details>
