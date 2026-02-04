@@ -305,4 +305,4 @@ ORDER BY month;
 - **Optimize the signup-to-first-purchase journey**  
   Improving this conversion stage represents the largest untapped revenue opportunity
 
-
+## How to Run Locally
