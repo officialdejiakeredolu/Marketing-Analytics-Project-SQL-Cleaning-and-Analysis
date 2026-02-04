@@ -19,13 +19,13 @@ End-to-end marketing analytics project using PostgreSQL to clean, unify, and ana
 3. [Key Questions](#key-questions)
 4. [Approach & Assumptions](#approach--assumptions)
 5. [Example Queries](#example-queries)
-6. [Key Insights](#key-insights)
+6. [Key Insights & Business Recommendations](#key-insights--business-recommendations)
 7. [How to Run Locally](#how-to-run-locally)
 
 
 ## Business Context
 
-A marketing team collects data across multiple channels — email campaigns, paid ads, and organic social media — but the data lives in separate systems with inconsistent formats, missing values, and duplicate records. Before any meaningful analysis can happen, the data needs to be cleaned, standardized, and unified.
+A marketing team collects data across multiple channels (email campaigns, paid ads, and organic social media) but the data lives in separate systems with inconsistent formats, missing values, and duplicate records. Before any meaningful analysis can happen, the data needs to be cleaned, standardized, and unified.
 This project simulates a real-world scenario where a data analyst must:
 
 Ingest and clean five messy datasets from different marketing platforms
@@ -34,7 +34,7 @@ Deduplicate records and fix logical errors
 Join data across tables to build a unified view of marketing performance
 Answer strategic business questions that go beyond surface-level metrics
 
-The goal is not just to calculate metrics — it's to uncover why certain metrics look the way they do and what the business should do differently.
+The goal is not just to calculate metrics, it's to uncover why certain metrics look the way they do and what the business should do differently.
 
 ## Dataset Overview
 
@@ -211,16 +211,24 @@ The goal is not just to calculate metrics — it's to uncover why certain metric
 
 ## Approach & Assumptions
 
-### Analytical Approach
+<details>
+<summary><strong>Analytical Approach</strong></summary>
+ 
 - **Staging:** Load raw CSV data into staging tables using `VARCHAR` columns to accept inconsistent formats
 - **Cleaning:** Transform staging data into clean tables using CTEs, window functions, and validation logic
 - **Analysis:** Perform performance, attribution, and strategic analyses on cleaned data
 - **Insights:** Translate analytical outputs into actionable business recommendations
 
-### Assumptions
+</details>
+
+<details>
+<summary><strong>Assumptions</strong></summary>
+ 
 - **Date validity:** Transactions occurring before customer signup dates are filtered out as data-entry errors
 - **Revenue completeness:** No return or refund data is available; reported revenue may overstate true profit
 - **Sample reliability:** Campaigns with fewer than 1,000 recipients may produce unstable metrics
+
+</details>
 
 <details>
 <summary><strong>Key SQL Techniques Used</strong></summary>
@@ -235,8 +243,66 @@ The goal is not just to calculate metrics — it's to uncover why certain metric
 
 <details>
 <summary><strong>Limitations</strong></summary>
+ 
 - **Email tracking:** No spam-folder visibility; open rates may be understated
 - **Attribution modeling:** Multi-touch attribution is simplified relative to real-world production models
 - **External factors:** Seasonality and macro effects are not explicitly controlled for in ROI calculations
 
 </details>
+
+## Example Queries
+
+Below are two examples. Full queries are available in the `/sql` directory.
+
+```sql
+-- Deduplicate customer records using ROW_NUMBER
+ROW_NUMBER() OVER (
+  PARTITION BY customer_id
+  ORDER BY completeness_score DESC
+)
+```
+
+```sql
+-- Calculates month-over-month revenue growth using LAG()
+SELECT
+    TO_CHAR(month, 'YYYY-MM') AS month,
+    ROUND(revenue, 2) AS total_revenue,
+    ROUND(
+        ((revenue - LAG(revenue) OVER (ORDER BY month)) /
+         NULLIF(LAG(revenue) OVER (ORDER BY month), 0)) * 100, 1
+    ) AS mom_growth_pct
+FROM monthly_revenue
+ORDER BY month;
+```
+
+## Key Insights & Business Recommendations
+
+### Channel Performance
+- **Email delivers the highest ROI among paid channels**, but shows diminishing returns above ~$1,500 per campaign spend
+- **Paid Ads scale more predictably**, maintaining relatively linear returns at higher spend levels
+- **Organic Social provides strong reach and engagement**, but contributes limited directly attributable revenue
+
+### Customer Behavior & Psychology
+- **Discount-acquired customers have lower lifetime value (LTV)**  
+  Customers whose first purchase involved a discount show higher churn rates and lower repeat purchase frequency compared to full-price customers
+
+- **Email frequency has a performance “sweet spot”**  
+  Moderate frequency (4–6 emails per month) produces the best balance of engagement and retention, while high frequency (8+ emails per month) correlates with increased unsubscribes and reduced long-term LTV
+
+- **Multi-touch customers convert more slowly but generate higher value**  
+  Customers exposed to 3+ marketing touchpoints before conversion tend to have higher average order values
+
+### Strategic Recommendations
+- **Reduce reliance on discount-driven acquisition**  
+  Shift toward value-based messaging and reserve deep discounts primarily for reactivation campaigns
+
+- **Implement email frequency capping**  
+  Segment customers by engagement level and tailor send frequency accordingly
+
+- **Rebalance channel investment**  
+  Email performance shows signs of saturation; incremental budget allocation toward Paid Ads may produce more scalable returns
+
+- **Optimize the signup-to-first-purchase journey**  
+  Improving this conversion stage represents the largest untapped revenue opportunity
+
+
