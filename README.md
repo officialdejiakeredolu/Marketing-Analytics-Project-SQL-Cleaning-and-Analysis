@@ -165,36 +165,36 @@ The goal is not just to calculate metrics, it's to uncover why certain metrics l
 ## Key Questions
 
 ### Standard Performance Questions
-- **Which marketing channel has the highest ROI?**
-- **What’s the typical customer journey from first touch to conversion?**
-- **Which email campaign types perform best?**
-- **How has performance changed month-over-month?**
-- **Which platforms drive the highest lifetime value (LTV) customers?**
-- **Which channels are best at acquisition vs. retention?**
+1. **Which marketing channel has the highest ROI?**
+2. **What’s the typical customer journey from first touch to conversion?**
+3. **Which email campaign types perform best?**
+4. **How has performance changed month-over-month?**
+5. **Which platforms drive the highest lifetime value (LTV) customers?**
+6. **Which channels are best at acquisition vs. retention?**
 
 <details>
 <summary><strong>Strategic, Nuanced, and Edge-Case Questions</strong></summary>
 
-- **Are we training customers to only buy on discount?**  
+1. **Are we training customers to only buy on discount?**  
   Do discount-acquired customers have lower lifetime value?
 
-- **Are high-ROI channels hitting saturation?**  
+2. **Are high-ROI channels hitting saturation?**  
   Do we see diminishing returns at higher spend levels?
 
-- **Is aggressive email marketing hurting long-term customer health?**  
+3. **Is aggressive email marketing hurting long-term customer health?**  
   Does high frequency drive short-term revenue but long-term churn?
 
-- **Do email campaigns convert because they persuade, or because they target already warm users?**
+4. **Do email campaigns convert because they persuade, or because they target already warm users?**
 
-- **Are certain customer segments more price-sensitive vs. trust-driven?**
+5. **Are certain customer segments more price-sensitive vs. trust-driven?**
 
-- **What role does each channel play in the funnel?**  
+6. **What role does each channel play in the funnel?**  
   (Upstream role vs. downstream role, intent capture, reinforcement, brand strength)
 
-- **Where does ROI break at scale?**  
+7. **Where does ROI break at scale?**  
   (Ad fatigue, diminishing returns)
 
-- **What would be recommended if the marketing budget were cut by a certain %?**
+8. **What would be recommended if the marketing budget were cut by a certain %?**
 
 </details>
 
@@ -277,33 +277,53 @@ ORDER BY month;
 
 ## Key Insights & Business Recommendations
 
-### Channel Performance
-- **Email delivers the highest ROI among paid channels**, but shows diminishing returns above ~$1,500 per campaign spend
-- **Paid Ads scale more predictably**, maintaining relatively linear returns at higher spend levels
-- **Organic Social provides strong reach and engagement**, but contributes limited directly attributable revenue
+### Answers to Business Questions
+
+1. **Which marketing channel has the highest ROI?**  
+   Email delivers the highest ROI but shows diminishing returns above ~$1,500 per campaign spend.
+
+2. **What's the typical customer journey from first touch to conversion?**  
+   The typical first touchpoint was Paid Search. Most customers were single touch. The average days to first purchase was 109.5 days.
+
+3. **Which email campaign types perform best?**  
+   ??? need to ask claude about negative rois and email being undercredited.
+
+4. **How has performance changed month-over-month?**  
+   Revenue was lowest in the first 3 months with an average of $8,800 but picked up significantly by April and stabilized at around $10,500 per month for the rest of the year. August had the highest revenue and highest month-over-month percentage growth.
+
+5. **Which platforms drive the highest lifetime value (LTV) customers?**  
+   need to ask claude social media platforms? or a different thing?
+
+6. **Which channels are best at acquisition vs. retention?**  
+   Paid search had the highest number of new customers acquired and repeat customers.
+
+Need to go into claude to see which analyses he used to answer each business question
+
+### Strategic Recommendations
+- **Implement email frequency capping**  
+  Segment customers by engagement level and tailor send frequency accordingly
+
+- **Rebalance channel investment**  
+  Email performance shows signs of saturation; increased budget allocation towards Paid Ads may produce more scalable returns
+
+- **Investigate year over year revenue trends**  
+  Look into monthly data for previous years to determine if lower revenue in Q1 is typical
+
+- **Reduce reliance on discount-driven acquisition**  
+  Shift toward value-based messaging and reserve deep discounts primarily for reactivation campaigns
+
+- **Optimize the signup-to-first-purchase journey**  
+  Improving this conversion stage represents a large revenue opportunity
 
 ### Customer Behavior & Psychology
-- **Discount-acquired customers have lower lifetime value (LTV)**  
-  Customers whose first purchase involved a discount show higher churn rates and lower repeat purchase frequency compared to full-price customers
-
 - **Email frequency has a performance “sweet spot”**  
   Moderate frequency (4–6 emails per month) produces the best balance of engagement and retention, while high frequency (8+ emails per month) correlates with increased unsubscribes and reduced long-term LTV
 
 - **Multi-touch customers convert more slowly but generate higher value**  
   Customers exposed to 3+ marketing touchpoints before conversion tend to have higher average order values
 
-### Strategic Recommendations
-- **Reduce reliance on discount-driven acquisition**  
-  Shift toward value-based messaging and reserve deep discounts primarily for reactivation campaigns
-
-- **Implement email frequency capping**  
-  Segment customers by engagement level and tailor send frequency accordingly
-
-- **Rebalance channel investment**  
-  Email performance shows signs of saturation; incremental budget allocation toward Paid Ads may produce more scalable returns
-
-- **Optimize the signup-to-first-purchase journey**  
-  Improving this conversion stage represents the largest untapped revenue opportunity
+- **Discount-acquired customers have lower lifetime value (LTV)**  
+  Customers whose first purchase involved a discount show higher churn rates and lower repeat purchase frequency compared to full-price customers
 
 ## How to Run Locally
 
