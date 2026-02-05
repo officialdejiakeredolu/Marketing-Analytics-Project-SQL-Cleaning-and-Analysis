@@ -306,3 +306,97 @@ ORDER BY month;
   Improving this conversion stage represents the largest untapped revenue opportunity
 
 ## How to Run Locally
+
+Follow the steps below to recreate the full data pipeline from raw datasets through final analysis outputs.
+
+### Prerequisites
+- PostgreSQL
+- pgAdmin 4 (recommended for UI-based query execution)
+
+<details>
+<summary><strong>Step 1: Download Raw CSV Data</strong></summary><br>
+
+Download the messy source datasets from the Google workbook:
+
+https://docs.google.com/spreadsheets/d/1ajbfK5ynyznbRAi4GaxfOyJGiodOtpS7kwvi6iXdK-8/edit?gid=1149910240#gid=1149910240
+
+Export each worksheet as a CSV file.
+
+</details>
+
+<details>
+<summary><strong>Step 2: Set Up PostgreSQL Database</strong></summary><br>
+
+```sql
+-- Connect to PostgreSQL and create the database
+CREATE DATABASE marketing_analytics;
+```
+
+</details>
+
+<details>
+<summary><strong>Step 3: Create Staging Tables</strong></summary><br>
+
+Run the following script:
+sql/01_create_staging_tables.sql
+
+</details>
+
+<details>
+<summary><strong>Step 4: Import CSV Data into Staging Tables</strong></summary><br>
+
+For each staging table:
+
+1. Expand Schemas → public → Tables
+2. Right-click the staging table → Import/Export Data
+3. Toggle Import ON
+4. Select the corresponding CSV file
+5. Use the following settings:
+6. Format: CSV
+7.  Header: ON
+8. Delimiter: ,
+9. Click OK
+
+</details>
+
+<details>
+<summary><strong>Step 5: Run Cleaning Scripts</strong></summary><br>
+
+Execute the cleaning scripts in the following order:
+
+sql/02_clean_email_campaigns.sql<br>
+sql/03_clean_paid_ads.sql<br>
+sql/04_clean_social_media_organic.sql<br>
+sql/05_clean_customer_transactions.sql<br>
+sql/06_clean_customer_master.sql<br>
+
+</details>
+
+<details>
+<summary><strong>Step 6: Run Analysis Scripts</strong></summary><br>
+
+Execute the analysis scripts in the following order:
+
+sql/07_analysis_channel_roi.sql<br>
+sql/08_analysis_customer_journey.sql<br>
+sql/09_analysis_campaign_optimization.sql<br>
+sql/10_analysis_segmentation.sql<br>
+sql/11_analysis_time_trends.sql<br>
+sql/12_strategic_discount_dependency.sql<br>
+sql/13_strategic_channel_saturation.sql<br>
+sql/14_strategic_message_fatigue.sql<br>
+
+</details>
+
+<details>
+<summary><strong>Step 7: Export Results</strong></summary><br>
+
+1. Run the following script:
+
+```sql
+SELECT * FROM table_name;
+```
+
+2. Use pgAdmin’s Download / Export button to save results as CSV.
+
+</details>
