@@ -316,7 +316,7 @@ Follow the steps below to recreate the full data pipeline from raw datasets thro
 <details>
 <summary><strong>Step 1: Download Raw CSV Data</strong></summary><br>
 
-Download the messy source datasets from the Google workbook:
+Download the messy source datasets from the Google workbook (save them to your local drive):
 
 https://docs.google.com/spreadsheets/d/1ajbfK5ynyznbRAi4GaxfOyJGiodOtpS7kwvi6iXdK-8/edit?gid=1149910240#gid=1149910240
 
@@ -326,6 +326,8 @@ Export each worksheet as a CSV file.
 
 <details>
 <summary><strong>Step 2: Set Up PostgreSQL Database</strong></summary><br>
+
+Open the Query Tool (Tools -> Query Tool) and run the following script:
 
 ```sql
 -- Connect to PostgreSQL and create the database
