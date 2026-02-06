@@ -169,7 +169,7 @@ The goal is not just to calculate metrics, it's to uncover why certain metrics l
 2. **What’s the typical customer journey from first touch to conversion?**
 3. **Which email campaign types perform best?**
 4. **How has performance changed month-over-month?**
-5. **Which platforms drive the highest lifetime value (LTV) customers?**
+5. **Which social platforms performed the best?**
 6. **Which channels are best at acquisition vs. retention?**
 
 <details>
