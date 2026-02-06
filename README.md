@@ -280,50 +280,49 @@ ORDER BY month;
 ### Answers to Business Questions
 
 1. **Which marketing channel has the highest ROI?**  
-   Email delivers the highest ROI but shows diminishing returns above ~$1,500 per campaign spend.
+   Paid ads delivers the highest ROI based on campaign-level attribution. However, based on typical industry benchmarks, email tends to yield the highest ROI when analyzed at the channel-level attribution. In our analysis, email had diminishing returns past ~$1500 in ad spend per campaign.
 
 2. **What's the typical customer journey from first touch to conversion?**  
    The typical first touchpoint was Paid Search. Most customers were single touch. The average days to first purchase was 109.5 days.
 
 3. **Which email campaign types perform best?**  
-   ??? need to ask claude about negative rois and email being undercredited.
+   Seasonal Sale campaign performed best with an ROI of -73.93% and ROAS of $0.26.<br>
+   Note: email campaigns were undercredited at the campaign attribution level so ROI and ROAS are lower than typical industry benchmarks.
 
-4. **How has performance changed month-over-month?**  
-   Revenue was lowest in the first 3 months with an average of $8,800 but picked up significantly by April and stabilized at around $10,500 per month for the rest of the year. August had the highest revenue and highest month-over-month percentage growth.
+5. **How has performance changed month-over-month?**  
+   Revenue was lowest in the first 3 months with an average of $8,800 but picked up significantly by April and stabilized at around $10,500 per month for the rest of the year. August had the highest revenue of $12525.97 and highest month-over-month percentage growth of 45.8%.
 
-5. **Which platforms drive the highest lifetime value (LTV) customers?**  
-   need to ask claude social media platforms? or a different thing?
+6. **Which platforms performed the best?**  
+   Instagram search yielded the highest ROI of 5830.83%.
 
-6. **Which channels are best at acquisition vs. retention?**  
+7. **Which channels are best at acquisition vs. retention?**  
    Paid search had the highest number of new customers acquired and repeat customers.
-
-Need to go into claude to see which analyses he used to answer each business question
-
-### Strategic Recommendations
-- **Implement email frequency capping**  
-  Segment customers by engagement level and tailor send frequency accordingly
-
-- **Rebalance channel investment**  
-  Email performance shows signs of saturation; increased budget allocation towards Paid Ads may produce more scalable returns
-
-- **Investigate year over year revenue trends**  
-  Look into monthly data for previous years to determine if lower revenue in Q1 is typical
-
-- **Reduce reliance on discount-driven acquisition**  
-  Shift toward value-based messaging and reserve deep discounts primarily for reactivation campaigns
-
-- **Optimize the signup-to-first-purchase journey**  
-  Improving this conversion stage represents a large revenue opportunity
 
 ### Customer Behavior & Psychology
 - **Email frequency has a performance “sweet spot”**  
-  Moderate frequency (4–6 emails per month) produces the best balance of engagement and retention, while high frequency (8+ emails per month) correlates with increased unsubscribes and reduced long-term LTV
+  Moderate frequency (4–6 emails per month) produces the best balance of engagement and retention, while high frequency (8+ emails per month) correlates with increased unsubscribes and reduced long-term LTV.
 
 - **Multi-touch customers convert more slowly but generate higher value**  
-  Customers exposed to 3+ marketing touchpoints before conversion tend to have higher average order values
+  Customers exposed to 3+ marketing touchpoints before conversion tend to have higher average order values.
 
 - **Discount-acquired customers have lower lifetime value (LTV)**  
-  Customers whose first purchase involved a discount show higher churn rates and lower repeat purchase frequency compared to full-price customers
+  Customers whose first purchase involved a discount show higher churn rates and lower repeat purchase frequency compared to full-price customers.
+
+### Strategic Recommendations
+- **Implement email frequency capping**  
+  Segment customers by engagement level and tailor send frequency accordingly.
+
+- **Rebalance channel investment**  
+  Email performance shows signs of saturation; increased budget allocation towards Paid Ads may produce more scalable returns.
+
+- **Investigate year over year revenue trends**  
+  Look into monthly data for previous years to determine if lower revenue in Q1 is typical.
+
+- **Reduce reliance on discount-driven acquisition**  
+  Shift toward value-based messaging and reserve deep discounts primarily for reactivation campaigns.
+
+- **Optimize the signup-to-first-purchase journey**  
+  Improving this conversion stage represents a large revenue opportunity.
 
 ## How to Run Locally
 
@@ -331,7 +330,9 @@ Follow the steps below to recreate the full data pipeline from raw datasets thro
 
 ### Prerequisites
 - PostgreSQL
-- pgAdmin 4 (recommended for UI-based query execution)
+- pgAdmin 4
+<br>
+
 
 <details>
 <summary><strong>Step 1: Download Raw CSV Data</strong></summary><br>
@@ -407,18 +408,5 @@ sql/11_analysis_time_trends.sql<br>
 sql/12_strategic_discount_dependency.sql<br>
 sql/13_strategic_channel_saturation.sql<br>
 sql/14_strategic_message_fatigue.sql<br>
-
-</details>
-
-<details>
-<summary><strong>Step 7: Export Results</strong></summary><br>
-
-1. Run the following script:
-
-```sql
-SELECT * FROM table_name;
-```
-
-2. Use pgAdmin’s Download / Export button to save results as CSV.
 
 </details>
