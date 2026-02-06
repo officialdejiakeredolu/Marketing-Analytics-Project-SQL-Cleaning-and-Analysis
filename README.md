@@ -387,11 +387,12 @@ For each staging table:
 
 Execute the cleaning scripts in the following order:
 
-sql/02_clean_email_campaigns.sql<br>
-sql/03_clean_paid_ads.sql<br>
-sql/04_clean_social_media_organic.sql<br>
-sql/05_clean_customer_transactions.sql<br>
-sql/06_clean_customer_master.sql<br>
+[sql/01_create_staging_tables.sql](sql/01_create_staging_tables.sql)<br>
+[sql/02_clean_email_campaigns.sql](sql/02_clean_email_campaigns.sql)<br>
+[sql/03_clean_paid_ads.sql](sql/03_clean_paid_ads.sql)<br>
+[sql/04_clean_social_media_organic.sql](sql/04_clean_social_media_organic.sql)<br>
+[sql/05_clean_customer_transactions.sql](sql/05_clean_customer_transactions.sql)<br>
+[sql/06_clean_customer_master.sql](sql/06_clean_customer_master.sql)<br>
 
 </details>
 
@@ -400,13 +401,13 @@ sql/06_clean_customer_master.sql<br>
 
 Execute the analysis scripts in the following order:
 
-sql/07_analysis_channel_roi.sql<br>
-sql/08_analysis_customer_journey.sql<br>
-sql/09_analysis_campaign_optimization.sql<br>
-sql/10_analysis_segmentation.sql<br>
-sql/11_analysis_time_trends.sql<br>
-sql/12_strategic_discount_dependency.sql<br>
-sql/13_strategic_channel_saturation.sql<br>
-sql/14_strategic_message_fatigue.sql<br>
+[sql/07_analysis_channel_roi.sql](sql/07_analysis_channel_roi.sql)<br>
+[sql/08_analysis_customer_journey.sql](sql/08_analysis_customer_journey.sql)<br>
+[sql/09_analysis_campaign_optimization.sql](sql/09_analysis_campaign_optimization.sql)<br>
+[sql/10_analysis_segmentation.sql](sql/10_analysis_segmentation.sql)<br>
+[sql/11_analysis_time_trends.sql](sql/11_analysis_time_trends.sql)<br>
+[sql/12_strategic_discount_dependency.sql](sql/12_strategic_discount_dependency.sql)<br>
+[sql/13_strategic_channel_saturation.sql](sql/13_strategic_channel_saturation.sql)<br>
+[sql/14_strategic_message_fatigue.sql](sql/14_strategic_message_fatigue.sql)<br>
 
 </details>
