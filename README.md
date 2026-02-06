@@ -292,7 +292,7 @@ ORDER BY month;
 5. **How has performance changed month-over-month?**  
    Revenue was lowest in the first 3 months with an average of $8,800 but picked up significantly by April and stabilized at around $10,500 per month for the rest of the year. August had the highest revenue of $12525.97 and highest month-over-month percentage growth of 45.8%.
 
-6. **Which platforms performed the best?**  
+6. **Which social platforms performed the best?**  
    Instagram search yielded the highest ROI of 5830.83%.
 
 7. **Which channels are best at acquisition vs. retention?**  
